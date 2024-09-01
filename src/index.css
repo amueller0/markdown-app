@@ -1,0 +1,14 @@
+/* Has to be disabled in order for preview to render. */
+/* @tailwind base; */
+@tailwind components;
+@tailwind utilities;
+
+* {
+    margin: 0;
+    padding: 0;
+
+    color: #fff;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+    box-sizing: border-box;
+}
