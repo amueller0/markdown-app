@@ -10,7 +10,7 @@ export type PreviewProps = {
 export default function PreviewPanel({ markdownString }: PreviewProps) {
     return (
         <Markdown
-            className={`${styles.markdown} leading-6 px-4 py-8 max-h-dvh overflow-y-auto bg-neutral-900`}
+            className={`${styles.markdown} leading-6 px-4 py-8 max-h-dvh overflow-y-auto`}
             remarkPlugins={[remarkGfm]}
         >
             {markdownString}
