@@ -1,0 +1,61 @@
+$font: #ffffff;
+$font-darker: #cccccc;
+$link: #7777cc;
+$secondary: #333333;
+$code: #ccaa77;
+
+.markdown {
+    & * {
+        color: $font-darker;
+    }
+
+    & *:first-child {
+        margin-top: 0;
+    }
+
+    & *:last-child {
+        margin-bottom: 0;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        color: $font;
+    }
+
+    p {
+        margin-bottom: 0.5rem;
+    }
+
+    a {
+        color: $link;
+    }
+
+    ol,
+    ul {
+        margin-bottom: 1rem;
+        padding-left: 2rem;
+    }
+
+    hr {
+        margin-top: 2rem;
+        border: none;
+        border-bottom: 2px dashed $secondary;
+    }
+
+    code {
+        padding: 0.2rem;
+
+        font-family: monospace;
+        font-size: 1rem;
+        color: $code;
+        background-color: $secondary;
+
+        border-radius: 4px;
+    }
+}
