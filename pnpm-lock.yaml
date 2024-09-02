@@ -13,6 +13,9 @@ importers:
             "@tauri-apps/api":
                 specifier: ^1
                 version: 1.6.0
+            inter-ui:
+                specifier: ^4.0.2
+                version: 4.0.2
             react:
                 specifier: ^18.2.0
                 version: 18.3.1
@@ -1664,6 +1667,13 @@ packages:
             {
                 integrity: sha512-qlD8YNDqyTKTyuITrDOffsl6Tdhv+UC4hcdAVuQsK4IMQ99nSgd1MIA/Q+jQYoh9r3hVUXhYh7urSRmXPkW04g==,
             }
+
+    inter-ui@4.0.2:
+        resolution:
+            {
+                integrity: sha512-YmfzwEtzuVzEenQwSB/tmmqi/A0a2GnFk4mG4ZFULXiO5DNk0fJWiO3o9i1sdVKuMVGx9iiNQnCq8ghWZJVVHw==,
+            }
+        engines: { node: ">=16.0.0" }
 
     is-alphabetical@2.0.1:
         resolution:
@@ -3955,6 +3965,8 @@ snapshots:
     ini@4.1.1: {}
 
     inline-style-parser@0.2.3: {}
+
+    inter-ui@4.0.2: {}
 
     is-alphabetical@2.0.1: {}
 

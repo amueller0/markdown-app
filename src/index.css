@@ -1,3 +1,5 @@
+@import "inter-ui";
+
 /* Has to be disabled in order for preview to render. */
 /* @tailwind base; */
 @tailwind components;
@@ -8,7 +10,7 @@
     padding: 0;
 
     color: #fff;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Inter, Arial, Helvetica, sans-serif;
 
     box-sizing: border-box;
 }

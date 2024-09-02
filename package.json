@@ -13,6 +13,7 @@
     "dependencies": {
         "@monaco-editor/react": "^4.6.0",
         "@tauri-apps/api": "^1",
+        "inter-ui": "^4.0.2",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "react-markdown": "^9.0.1",
