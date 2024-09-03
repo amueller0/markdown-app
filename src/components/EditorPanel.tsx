@@ -1,12 +1,12 @@
-import { Editor } from "@monaco-editor/react"
+import { Editor as MonacoEditor } from "@monaco-editor/react"
 
 export type EditorProps = {
     handleChange: (value: string) => void
 }
 
-export default function EditorPanel({ handleChange }: EditorProps) {
+export default function Editor({ handleChange }: EditorProps) {
     return (
-        <Editor
+        <MonacoEditor
             className="[&_*]:font-mono"
             theme="hc-black"
             defaultLanguage="markdown"

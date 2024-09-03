@@ -1,4 +1,5 @@
 @import "inter-ui";
+@import "./globals.scss";
 
 /* Has to be disabled in order for preview to render. */
 /* @tailwind base; */
@@ -9,8 +10,12 @@
     margin: 0;
     padding: 0;
 
-    color: #fff;
     font-family: Inter, Arial, Helvetica, sans-serif;
+    color: $font;
 
     box-sizing: border-box;
+}
+
+body {
+    background-color: $bg;
 }

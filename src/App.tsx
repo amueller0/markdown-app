@@ -1,8 +1,9 @@
 import brillianceBlackThemeData from "../res/themes/brilliance-black.json"
 import { useEffect, useState } from "react"
-import EditorPanel from "./components/EditorPanel"
-import PreviewPanel from "./components/PreviewPanel"
+import Editor from "./components/EditorPanel"
+import Preview from "./components/PreviewPanel"
 import { useMonaco } from "@monaco-editor/react"
+import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels"
 
 function App() {
     const [markdownString, setMarkdownString] = useState<string>("")
@@ -18,10 +19,17 @@ function App() {
     }, [monaco])
 
     return (
-        <div className="grid grid-cols-2 w-dvw h-dvh">
-            <EditorPanel handleChange={setMarkdownString} />
-            <PreviewPanel markdownString={markdownString} />
-        </div>
+        <PanelGroup direction="horizontal" className="grid grid-cols-2 w-dvw h-dvh">
+            <Panel className="h-dvh">
+                <Editor handleChange={setMarkdownString} />
+            </Panel>
+
+            <PanelResizeHandle className="w-[4px] bg-neutral-800" />
+
+            <Panel className="h-dvh">
+                <Preview markdownString={markdownString} />
+            </Panel>
+        </PanelGroup>
     )
 }
 
