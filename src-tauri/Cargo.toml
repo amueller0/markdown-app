@@ -1,5 +1,5 @@
 [package]
-name = "markdown-viewer"
+name = "markdown-app"
 version = "0.1.0"
 description = "View and edit markdown"
 authors = ["amueller0"]

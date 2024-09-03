@@ -6,7 +6,7 @@
     "distDir": "../dist"
   },
   "package": {
-    "productName": "markdown-viewer",
+    "productName": "markdown-app",
     "version": "0.1.0"
   },
   "tauri": {
