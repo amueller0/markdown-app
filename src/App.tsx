@@ -82,6 +82,13 @@ function App() {
         }
     }, [hasUnsavedChanges])
 
+    useEffect(() => {
+        ;(async () => {
+            const titleString = `${hasUnsavedChanges ? "•  " : ""}${filePath?.replace(/\\\\/g, "/") ?? "New Markdown File"}`
+            await appWindow.setTitle(titleString)
+        })()
+    }, [hasUnsavedChanges, filePath])
+
     return (
         <PanelGroup direction="horizontal" className="grid grid-cols-2 w-dvw h-dvh">
             <Panel className="h-dvh">

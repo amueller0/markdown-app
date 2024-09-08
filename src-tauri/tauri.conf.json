@@ -25,7 +25,8 @@
       "window": {
         "all": false,
         "close": true,
-        "setClosable": true
+        "setClosable": true,
+        "setTitle": true
       },
       "dialog": {
         "all": false,
