@@ -1,19 +1,11 @@
 import { Editor as MonacoEditor } from "@monaco-editor/react"
-import { useState } from "react"
 
 export type EditorProps = {
-    defaultValue?: string
+    value?: string
     handleChange: (value: string) => void
 }
 
-export default function Editor({ defaultValue, handleChange }: EditorProps) {
-    const [_markdown, setMarkdown] = useState<string>("")
-
-    function updateMarkdown(newContent: string) {
-        setMarkdown(newContent)
-        handleChange(newContent)
-    }
-
+export default function Editor({ value, handleChange }: EditorProps) {
     return (
         <MonacoEditor
             className="[&_*]:font-mono"
@@ -24,8 +16,8 @@ export default function Editor({ defaultValue, handleChange }: EditorProps) {
                     enabled: false,
                 },
             }}
-            defaultValue={defaultValue}
-            onChange={(value) => updateMarkdown(value || "")}
+            value={value}
+            onChange={(newValue) => handleChange(newValue || "")}
         />
     )
 }

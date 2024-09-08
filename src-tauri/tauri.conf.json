@@ -19,6 +19,7 @@
       "fs": {
         "all": false,
         "readFile": true,
+        "writeFile": true,
         "scope": ["**", "**/*", "/**/*"]
       }
     },
