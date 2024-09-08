@@ -21,6 +21,15 @@
         "readFile": true,
         "writeFile": true,
         "scope": ["**", "**/*", "/**/*"]
+      },
+      "window": {
+        "all": false,
+        "close": true,
+        "setClosable": true
+      },
+      "dialog": {
+        "all": false,
+        "confirm": true
       }
     },
     "windows": [

@@ -6,10 +6,13 @@ import { useMonaco } from "@monaco-editor/react"
 import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels"
 import { invoke } from "@tauri-apps/api/tauri"
 import { readTextFile, writeTextFile } from "@tauri-apps/api/fs"
+import { appWindow } from "@tauri-apps/api/window"
+import { dialog } from "@tauri-apps/api"
 
 function App() {
     const [markdownString, setMarkdownString] = useState<string>("")
     const [filePath, setFilePath] = useState<string | null>(null)
+    const [hasUnsavedChanges, setHasUnsavedChanges] = useState<boolean>(false)
     const monaco = useMonaco()
 
     async function openFile(filePath: string) {
@@ -20,6 +23,7 @@ function App() {
 
     async function saveFile(filePath: string) {
         await writeTextFile(filePath, markdownString)
+        setHasUnsavedChanges(false)
     }
 
     useEffect(() => {
@@ -59,10 +63,35 @@ function App() {
         return () => window.removeEventListener("keydown", handler)
     }, [filePath, markdownString])
 
+    useEffect(() => {
+        const unlisten = appWindow.onCloseRequested(async (event) => {
+            if (!hasUnsavedChanges) return
+
+            const hasConfirmed = await dialog.confirm("You have unsaved changes. Close anyway?", {
+                title: "Markdown App",
+                type: "warning",
+            })
+
+            if (!hasConfirmed) {
+                event.preventDefault()
+            }
+        })
+
+        return () => {
+            unlisten.then((f) => f())
+        }
+    }, [hasUnsavedChanges])
+
     return (
         <PanelGroup direction="horizontal" className="grid grid-cols-2 w-dvw h-dvh">
             <Panel className="h-dvh">
-                <Editor value={markdownString} handleChange={(value) => setMarkdownString(value)} />
+                <Editor
+                    value={markdownString}
+                    handleChange={(value) => {
+                        setMarkdownString(value)
+                        setHasUnsavedChanges(true)
+                    }}
+                />
             </Panel>
 
             <PanelResizeHandle className="w-[4px] bg-neutral-800" />
